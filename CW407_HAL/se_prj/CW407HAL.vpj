@@ -1,0 +1,1159 @@
+<!DOCTYPE Project SYSTEM "http://www.slickedit.com/dtd/vse/10.0/vpj.dtd">
+<Project
+	Version="10.0"
+	VendorName="SlickEdit"
+	TemplateName="Other C/C++"
+	WorkingDir=".">
+	<Config
+		Name="Debug"
+		Type="cpp"
+		DebugCallbackName="gdb"
+		OutputFile="%bdCW407HAL"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				CaptureOutputWith="ProcessBuffer"
+				OutputExts="*.o"
+				SaveOption="SaveCurrent"
+				RunFromDir="%rw">
+				<Exec CmdLine='cc -c -g %i %defd -o "%bd%n.o" "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link">
+				<Exec CmdLine='cc -g -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+		</Menu>
+	</Config>
+	<Config
+		Name="Release"
+		Type="cpp"
+		DebugCallbackName="gdb"
+		OutputFile="%bdCW407HAL"
+		CompilerConfigName="Latest Version">
+		<Menu>
+			<Target
+				Name="Compile"
+				MenuCaption="&amp;Compile"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveCurrent"
+				OutputExts="*.o"
+				RunFromDir="%rw">
+				<Exec CmdLine='cc -c -O %i %defd -o "%bd%n.o" "%f"'/>
+			</Target>
+			<Target
+				Name="Link"
+				MenuCaption="&amp;Link">
+				<Exec CmdLine='cc -O -o "%o" %f %libs'/>
+			</Target>
+			<Target
+				Name="Build"
+				MenuCaption="&amp;Build"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" build "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Rebuild"
+				MenuCaption="&amp;Rebuild"
+				CaptureOutputWith="ProcessBuffer"
+				SaveOption="SaveWorkspaceFiles"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%(VSLICKBIN1)vsbuild" rebuild "%w" "%r"'/>
+			</Target>
+			<Target
+				Name="Debug"
+				MenuCaption="&amp;Debug"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='vsdebugio -prog "%o"'/>
+			</Target>
+			<Target
+				Name="Execute"
+				MenuCaption="E&amp;xecute"
+				SaveOption="SaveNone"
+				BuildFirst="1"
+				CaptureOutputWith="ProcessBuffer"
+				RunFromDir="%rw">
+				<Exec CmdLine='"%o"'/>
+			</Target>
+		</Menu>
+	</Config>
+	<Rules Name="Compile">
+		<Rule
+			InputExts="*.s"
+			OutputExts="*.o"
+			LinkObject="1">
+			<Exec CmdLine='as -o "%bd%n.o" "%f"'/>
+		</Rule>
+	</Rules>
+	<CustomFolders>
+		<Folder
+			Name="Source Files"
+			Filters="*.c;*.C;*.cc;*.cpp;*.cp;*.cxx;*.c++;*.prg;*.pas;*.dpr;*.asm;*.s;*.bas;*.java;*.cs;*.sc;*.e;*.cob;*.html;*.rc;*.tcl;*.py;*.pl;*.d;*.m;*.mm;*.go;*.groovy;*.gsh"
+			GUID="{3D02E314-99A6-4BD3-C927-3BA596046B90}"></Folder>
+		<Folder
+			Name="Header Files"
+			Filters="*.h;*.H;*.hh;*.hpp;*.hxx;*.h++;*.inc;*.sh;*.cpy;*.if"
+			GUID="{B934798E-3E05-4DE5-A8DD-2864923B1FB9}"></Folder>
+		<Folder
+			Name="Resource Files"
+			Filters="*.ico;*.cur;*.dlg"
+			GUID="{97C8A2A6-02DF-4BE2-C14C-0FF6173D91BA}"/>
+		<Folder
+			Name="Bitmaps"
+			Filters="*.bmp"
+			GUID="{6826547C-88C7-4F19-D28C-C67CEF9487A2}"/>
+		<Folder
+			Name="Other Files"
+			Filters=""
+			GUID="{D94517FC-2A8E-4119-4959-478096C90DA8}"/>
+	</CustomFolders>
+	<Files AutoFolders="DirectoryView">
+		<Folder Name="../App">
+			<F N="../App/app.c"/>
+			<F N="../App/app.h"/>
+			<F N="../App/app_ethernet.c"/>
+			<F N="../App/app_ethernet.h"/>
+			<F N="../App/Config.h"/>
+			<F N="../App/LCD.c"/>
+			<F N="../App/LCD.h"/>
+			<F N="../App/protocol - Copy.c"/>
+			<F N="../App/protocol.c"/>
+			<F N="../App/protocol.h"/>
+			<F N="../App/Task_ADC.c"/>
+			<F N="../App/Task_ADC.h"/>
+			<F N="../App/Task_GPRS.c"/>
+			<F N="../App/Task_GPRS.h"/>
+			<F N="../App/tcp_echoclient.c"/>
+			<F N="../App/tcp_echoclient.h"/>
+		</Folder>
+		<Folder Name="../Drivers">
+			<Folder Name="BSP">
+				<F N="../Drivers/BSP/bsp.c"/>
+				<F N="../Drivers/BSP/bsp.h"/>
+				<F N="../Drivers/BSP/bsp_cpu_flash.c"/>
+				<F N="../Drivers/BSP/bsp_cpu_flash.h"/>
+				<F N="../Drivers/BSP/bsp_eeprom_24xx.c"/>
+				<F N="../Drivers/BSP/bsp_eeprom_24xx.h"/>
+				<F N="../Drivers/BSP/bsp_modbus.c"/>
+				<F N="../Drivers/BSP/bsp_modbus.h"/>
+				<F N="../Drivers/BSP/bsp_port.c"/>
+				<F N="../Drivers/BSP/bsp_port.h"/>
+				<F N="../Drivers/BSP/bsp_spi_flash.c"/>
+				<F N="../Drivers/BSP/bsp_spi_flash.h"/>
+				<F N="../Drivers/BSP/bsp_uart_fifo.c"/>
+				<F N="../Drivers/BSP/bsp_uart_fifo.h"/>
+				<F N="../Drivers/BSP/bsp_user_lib.c"/>
+				<F N="../Drivers/BSP/bsp_user_lib.h"/>
+				<F N="../Drivers/BSP/gprs.c"/>
+				<F N="../Drivers/BSP/gprs.h"/>
+				<F N="../Drivers/BSP/param.c"/>
+				<F N="../Drivers/BSP/param.h"/>
+				<F N="../Drivers/BSP/sdram.c"/>
+				<F N="../Drivers/BSP/sdram.h"/>
+				<F N="../Drivers/BSP/spi_sd_card_driver.c"/>
+				<F N="../Drivers/BSP/spi_sd_card_driver.h"/>
+			</Folder>
+			<Folder Name="CMSIS">
+				<Folder Name="Device">
+					<Folder Name="ST">
+						<Folder Name="STM32F4xx">
+							<Folder Name="Include">
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xc.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f405xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f410cx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f410rx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f410tx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f411xe.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f412cx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f412rx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f412vx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f412zx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f413xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f415xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f417xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f423xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f427xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f429xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f437xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f439xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f469xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f479xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"/>
+								<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"/>
+							</Folder>
+							<Folder Name="Source">
+								<Folder Name="Templates">
+									<F N="../Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c"/>
+								</Folder>
+							</Folder>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="DSP_Lib">
+					<Folder Name="Source">
+						<Folder Name="BasicMathFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_abs_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_add_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_dot_prod_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_mult_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_negate_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_offset_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_scale_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_shift_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/BasicMathFunctions/arm_sub_q7.c"/>
+						</Folder>
+						<Folder Name="CommonTables">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_common_tables.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/CommonTables/arm_const_structs.c"/>
+						</Folder>
+						<Folder Name="ComplexMathFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_conj_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_dot_prod_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mag_squared_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_cmplx_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ComplexMathFunctions/arm_cmplx_mult_real_q31.c"/>
+						</Folder>
+						<Folder Name="ControllerFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_pid_reset_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/ControllerFunctions/arm_sin_cos_q31.c"/>
+						</Folder>
+						<Folder Name="FastMathFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_cos_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sin_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FastMathFunctions/arm_sqrt_q31.c"/>
+						</Folder>
+						<Folder Name="FilteringFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_32x64_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df1_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_f64.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_df2T_init_f64.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_biquad_cascade_stereo_df2T_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_opt_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_opt_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_partial_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_conv_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_opt_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_correlate_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_decimate_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_init_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_interpolate_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_lattice_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_init_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_fir_sparse_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_iir_lattice_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_norm_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/FilteringFunctions/arm_lms_q31.c"/>
+						</Folder>
+						<Folder Name="MatrixFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_add_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_cmplx_mult_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_inverse_f64.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_fast_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_mult_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_scale_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_sub_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/MatrixFunctions/arm_mat_trans_q31.c"/>
+						</Folder>
+						<Folder Name="StatisticsFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_max_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_mean_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_min_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_power_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_rms_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_std_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/StatisticsFunctions/arm_var_q31.c"/>
+						</Folder>
+						<Folder Name="SupportFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_copy_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_fill_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_float_to_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_float.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q15_to_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_float.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q31_to_q7.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_float.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/SupportFunctions/arm_q7_to_q31.c"/>
+						</Folder>
+						<Folder Name="TransformFunctions">
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_bitreversal.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix2_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix4_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_cfft_radix8_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_dct4_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_fast_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_f32.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_init_q31.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q15.c"/>
+							<F N="../Drivers/CMSIS/DSP_Lib/Source/TransformFunctions/arm_rfft_q31.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+				<Folder Name="Include">
+					<F N="../Drivers/CMSIS/Include/arm_common_tables.h"/>
+					<F N="../Drivers/CMSIS/Include/arm_const_structs.h"/>
+					<F N="../Drivers/CMSIS/Include/arm_math.h"/>
+					<F N="../Drivers/CMSIS/Include/cmsis_armcc.h"/>
+					<F N="../Drivers/CMSIS/Include/cmsis_armcc_V6.h"/>
+					<F N="../Drivers/CMSIS/Include/cmsis_gcc.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cm0.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cm0plus.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cm3.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cm4.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cm7.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cmFunc.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cmInstr.h"/>
+					<F N="../Drivers/CMSIS/Include/core_cmSimd.h"/>
+					<F N="../Drivers/CMSIS/Include/core_sc000.h"/>
+					<F N="../Drivers/CMSIS/Include/core_sc300.h"/>
+				</Folder>
+				<Folder Name="RTOS">
+					<Folder Name="Template">
+						<F N="../Drivers/CMSIS/RTOS/Template/cmsis_os.h"/>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="STM32F4xx_HAL_Driver">
+				<Folder Name="Inc">
+					<Folder Name="Legacy">
+						<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy/stm32_hal_legacy.h"/>
+					</Folder>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32_assert_template.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_can.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cec.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_conf_template.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_crc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cryp_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dac_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dcmi_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dfsdm.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma2d.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dsi.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_eth.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_fmpi2c_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hash_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_hcd.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2s_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_irda.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_iwdg.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_lptim.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_ltdc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_ltdc_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_mmc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nand.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_nor.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pccard.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pcd_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_qspi.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rng.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sai_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sd.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sdram.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_smartcard.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spdifrx.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_sram.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_usart.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_wwdg.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_adc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_bus.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_cortex.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_crc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dac.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_dma2d.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_exti.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fmc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_fsmc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_gpio.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_i2c.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_iwdg.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_lptim.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_pwr.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rcc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rng.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_rtc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_sdmmc.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_spi.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_system.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_tim.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usart.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_usb.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_utils.h"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_ll_wwdg.h"/>
+				</Folder>
+				<Folder Name="Src">
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_adc_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_can.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cec.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cortex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_crc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_cryp_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dac_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dcmi_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dfsdm.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma2d.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dma_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_dsi.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_eth.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_flash_ramfunc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_fmpi2c.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_fmpi2c_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_gpio.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hash_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_hcd.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2c_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_i2s_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_irda.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_iwdg.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_lptim.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_ltdc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_ltdc_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_mmc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_msp_template.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nand.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_nor.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pccard.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pcd_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_pwr_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_qspi.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rcc_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rng.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sai.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sai_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sd.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sdram.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_smartcard.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spdifrx.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_spi.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_sram.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_tim_ex.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_alarm_template.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_rtc_wakeup_template.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_timebase_tim_template.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_uart.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_usart.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_wwdg.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_adc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_crc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dac.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_dma2d.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_exti.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fmc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_fsmc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_gpio.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_i2c.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_lptim.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_pwr.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rcc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rng.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_rtc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_sdmmc.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_spi.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_tim.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usart.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_usb.c"/>
+					<F N="../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_ll_utils.c"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="../Inc">
+			<F N="../Inc/bsp_driver_sd.h"/>
+			<F N="../Inc/ethernetif.h"/>
+			<F N="../Inc/fatfs.h"/>
+			<F N="../Inc/ffconf.h"/>
+			<F N="../Inc/FreeRTOSConfig.h"/>
+			<F N="../Inc/lwip.h"/>
+			<F N="../Inc/lwipopts.h"/>
+			<F N="../Inc/main.h"/>
+			<F N="../Inc/stm32f4xx_hal_conf.h"/>
+			<F N="../Inc/stm32f4xx_it.h"/>
+			<F N="../Inc/usb_device.h"/>
+			<F N="../Inc/usbd_conf.h"/>
+			<F N="../Inc/usbd_desc.h"/>
+			<F N="../Inc/usbd_storage_if.h"/>
+		</Folder>
+		<Folder Name="../MDK-ARM">
+			<Folder Name="RTE">
+				<Folder Name="_HAL407">
+					<F N="../MDK-ARM/RTE/_HAL407/RTE_Components.h"/>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="../Middlewares">
+			<Folder Name="ST">
+				<Folder Name="STM32_USB_Device_Library">
+					<Folder Name="Class">
+						<Folder Name="MSC">
+							<Folder Name="Inc">
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc.h"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_bot.h"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_data.h"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_scsi.h"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Inc/usbd_msc_storage_template.h"/>
+							</Folder>
+							<Folder Name="Src">
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc.c"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_bot.c"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_data.c"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_scsi.c"/>
+								<F N="../Middlewares/ST/STM32_USB_Device_Library/Class/MSC/Src/usbd_msc_storage_template.c"/>
+							</Folder>
+						</Folder>
+					</Folder>
+					<Folder Name="Core">
+						<Folder Name="Inc">
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_conf_template.h"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_core.h"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ctlreq.h"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_ioreq.h"/>
+						</Folder>
+						<Folder Name="Src">
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_conf_template.c"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_core.c"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ctlreq.c"/>
+							<F N="../Middlewares/ST/STM32_USB_Device_Library/Core/Src/usbd_ioreq.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+			</Folder>
+			<Folder Name="Third_Party">
+				<Folder Name="FatFs">
+					<Folder Name="src">
+						<Folder Name="drivers">
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.h"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sdram_diskio.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sdram_diskio.h"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sram_diskio.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/sram_diskio.h"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/usbh_diskio.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/drivers/usbh_diskio.h"/>
+						</Folder>
+						<Folder Name="option">
+							<F N="../Middlewares/Third_Party/FatFs/src/option/cc932.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/cc936.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/cc949.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/cc950.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/ccsbcs.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/syscall.c"/>
+							<F N="../Middlewares/Third_Party/FatFs/src/option/unicode.c"/>
+						</Folder>
+						<F N="../Middlewares/Third_Party/FatFs/src/diskio.c"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/diskio.h"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/ff.c"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/ff.h"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/ff_gen_drv.c"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/ffconf_template.h"/>
+						<F N="../Middlewares/Third_Party/FatFs/src/integer.h"/>
+					</Folder>
+				</Folder>
+				<Folder Name="FreeRTOS">
+					<Folder Name="Source">
+						<Folder Name="CMSIS_RTOS">
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.c"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h"/>
+						</Folder>
+						<Folder Name="include">
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/croutine.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOSConfig_template.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/list.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_prototypes.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/StackMacros.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/task.h"/>
+							<F N="../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h"/>
+						</Folder>
+						<Folder Name="portable">
+							<Folder Name="MemMang">
+								<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_1.c"/>
+								<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_2.c"/>
+								<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_3.c"/>
+								<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c"/>
+								<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_5.c"/>
+							</Folder>
+							<Folder Name="RVDS">
+								<Folder Name="ARM_CM4F">
+									<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c"/>
+									<F N="../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/portmacro.h"/>
+								</Folder>
+							</Folder>
+						</Folder>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/croutine.c"/>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/event_groups.c"/>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/list.c"/>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/queue.c"/>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/tasks.c"/>
+						<F N="../Middlewares/Third_Party/FreeRTOS/Source/timers.c"/>
+					</Folder>
+				</Folder>
+				<Folder Name="LwIP">
+					<Folder Name="src">
+						<Folder Name="api">
+							<F N="../Middlewares/Third_Party/LwIP/src/api/api_lib.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/api_msg.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/err.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/netbuf.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/netdb.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/netifapi.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/sockets.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/api/tcpip.c"/>
+						</Folder>
+						<Folder Name="core">
+							<Folder Name="ipv4">
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/autoip.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/dhcp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/etharp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/icmp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/igmp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/ip4.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_addr.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv4/ip4_frag.c"/>
+							</Folder>
+							<Folder Name="ipv6">
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/dhcp6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/ethip6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/icmp6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/inet6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/ip6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/ip6_addr.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/ip6_frag.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/mld6.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/core/ipv6/nd6.c"/>
+							</Folder>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/def.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/dns.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/inet_chksum.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/init.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/ip.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/mem.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/memp.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/netif.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/pbuf.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/raw.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/stats.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/sys.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/tcp.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/tcp_in.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/tcp_out.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/timeouts.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/core/udp.c"/>
+						</Folder>
+						<Folder Name="include">
+							<Folder Name="lwip">
+								<Folder Name="apps">
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/fs.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/httpd.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/httpd_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/lwiperf.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mdns.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mdns_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/mdns_priv.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/netbiosns.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/netbiosns_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_core.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_mib2.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_scalar.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_table.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmp_threadsync.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/snmpv3.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/sntp_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/tftp_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/apps/tftp_server.h"/>
+								</Folder>
+								<Folder Name="priv">
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/priv/api_msg.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/priv/memp_priv.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/priv/memp_std.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/priv/tcp_priv.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/priv/tcpip_priv.h"/>
+								</Folder>
+								<Folder Name="prot">
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/autoip.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/dhcp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/dns.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/etharp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ethernet.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/icmp6.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/igmp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip4.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/ip6.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/mld6.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/nd6.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/tcp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/prot/udp.h"/>
+								</Folder>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/api.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/arch.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/autoip.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/debug.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/def.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/dhcp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/dhcp6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/dns.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/err.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/errno.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/etharp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ethip6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/icmp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/icmp6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/igmp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/inet.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/inet_chksum.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/init.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip4.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip4_addr.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip4_frag.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip6_addr.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip6_frag.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/ip_addr.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/mem.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/memp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/mld6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/nd6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/netbuf.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/netdb.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/netif.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/netifapi.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/opt.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/pbuf.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/raw.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/sio.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/snmp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/sockets.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/stats.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/sys.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/tcp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/tcpip.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/timeouts.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/lwip/udp.h"/>
+							</Folder>
+							<Folder Name="netif">
+								<Folder Name="ppp">
+									<Folder Name="polarssl">
+										<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/polarssl/arc4.h"/>
+										<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/polarssl/des.h"/>
+										<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/polarssl/md4.h"/>
+										<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/polarssl/md5.h"/>
+										<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/polarssl/sha1.h"/>
+									</Folder>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ccp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/chap-md5.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/chap-new.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/chap_ms.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/eap.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ecp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/eui64.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/fsm.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ipcp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ipv6cp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/lcp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/magic.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/mppe.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ppp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ppp_impl.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/ppp_opts.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppapi.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppcrypt.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppdebug.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppoe.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppol2tp.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/pppos.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/upap.h"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ppp/vj.h"/>
+								</Folder>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/netif/etharp.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/netif/ethernet.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/netif/lowpan6.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/netif/lowpan6_opts.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/netif/slipif.h"/>
+							</Folder>
+							<Folder Name="posix">
+								<Folder Name="sys">
+									<F N="../Middlewares/Third_Party/LwIP/src/include/posix/sys/socket.h"/>
+								</Folder>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/posix/errno.h"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/include/posix/netdb.h"/>
+							</Folder>
+						</Folder>
+						<Folder Name="netif">
+							<Folder Name="ppp">
+								<Folder Name="polarssl">
+									<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/polarssl/arc4.c"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/polarssl/des.c"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/polarssl/md4.c"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/polarssl/md5.c"/>
+									<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/polarssl/sha1.c"/>
+								</Folder>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/auth.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/ccp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/chap-md5.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/chap-new.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/chap_ms.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/demand.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/eap.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/ecp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/eui64.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/fsm.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/ipcp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/ipv6cp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/lcp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/magic.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/mppe.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/multilink.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/ppp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/pppapi.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/pppcrypt.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/pppoe.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/pppol2tp.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/pppos.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/upap.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/utils.c"/>
+								<F N="../Middlewares/Third_Party/LwIP/src/netif/ppp/vj.c"/>
+							</Folder>
+							<F N="../Middlewares/Third_Party/LwIP/src/netif/ethernet.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/netif/ethernetif_template.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/netif/lowpan6.c"/>
+							<F N="../Middlewares/Third_Party/LwIP/src/netif/slipif.c"/>
+						</Folder>
+					</Folder>
+					<Folder Name="system">
+						<Folder Name="arch">
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/bpstruct.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/cc.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/cpu.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/epstruct.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/init.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/lib.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/perf.h"/>
+							<F N="../Middlewares/Third_Party/LwIP/system/arch/sys_arch.h"/>
+						</Folder>
+						<Folder Name="OS">
+							<F N="../Middlewares/Third_Party/LwIP/system/OS/sys_arch.c"/>
+						</Folder>
+					</Folder>
+				</Folder>
+			</Folder>
+		</Folder>
+		<Folder Name="../Src">
+			<F N="../Src/bsp_driver_sd.c"/>
+			<F N="../Src/ethernetif.c"/>
+			<F N="../Src/fatfs.c"/>
+			<F N="../Src/freertos.c"/>
+			<F N="../Src/lwip.c"/>
+			<F N="../Src/main.c"/>
+			<F N="../Src/stm32f4xx_hal_msp.c"/>
+			<F N="../Src/stm32f4xx_hal_timebase_TIM.c"/>
+			<F N="../Src/stm32f4xx_it.c"/>
+			<F N="../Src/system_stm32f4xx.c"/>
+			<F N="../Src/usb_device.c"/>
+			<F N="../Src/usbd_conf.c"/>
+			<F N="../Src/usbd_desc.c"/>
+			<F N="../Src/usbd_storage_if.c"/>
+		</Folder>
+	</Files>
+</Project>
