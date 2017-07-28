@@ -199,8 +199,8 @@ DRESULT SD_write(BYTE lun, const BYTE *buff, DWORD sector, UINT count)
                                (uint32_t)(sector),
                                count) == MSD_OK)
     {
-//      while (SDIO_GetTxOk() == 0)
-            while (BSP_SD_GetCardState() != MSD_OK && SDIO_GetTxOk() == 0)                      //&& SDIO_GetTxOk == 0)
+        while (SDIO_GetTxOk() == 0)
+//          while (BSP_SD_GetCardState() != MSD_OK && SDIO_GetTxOk() == 0)                      //&& SDIO_GetTxOk == 0)
         {
             if (timeout-- == 0)
             {
